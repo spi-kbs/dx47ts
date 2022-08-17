@@ -1,20 +1,66 @@
 import React from "react";
-import {PrefectureListItem} from "./PrefectureListItem";
-import {Region} from "./interface/Prefecture"
+import {RegionClosedListItem, RegionListItem} from "./components/RegionListItem";
+import {Region} from "./types/Prefecture"
 
 function List2() {
-  const prefectureAll = getPrefecture();
+  const regions = getRegions();
 
   return (
     <dl>
-      {prefectureAll.map(({ name, area }) => (
-        <PrefectureListItem name={name} area={area} />
+      {regions.map(({ name, area }, i) => (
+        <RegionListItem name={name} area={area} key={i} />
       ))}
+
+      {/* {regions.map((region, i) => (
+        <RegionListItem name={region.name} area={region.area} key={i} />
+      ))} */}
+
+      {/* {regions.map((region, i) => (
+        <RegionListItem {...region} key={i} />
+      ))} */}
+
+
+      {/* {regions.map((region, i) => (
+        <RegionClosedListItem {...region} key={i} />
+      ))} */}
     </dl>
   );
 }
 
-function getPrefecture(): Region[] {
+const matsuura = {
+  name: 'matsuura'
+}
+const kobashi = {
+  agen: 20
+}
+
+const merged = {
+  ...matsuura,
+  ...kobashi
+}
+// console.log(merged)
+// {
+//   name: 'matsuura'
+//   age: 20
+// }
+
+
+const merged2 = {
+  matsuura,
+  kobashi
+}
+// console.log(merged)
+// {
+//   matsuura:{
+//     name: 'matsuura'
+//   },
+//   kobashi: {
+//     age: 20
+//   }
+// }
+
+
+function getRegions(): Region[] {
   return [
     {
       name: "北海道地方",
