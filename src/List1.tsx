@@ -1,16 +1,22 @@
 import React from 'react';
 
+const PrefectureListItem = ({name, prefecture}: {name: string, prefecture: string}) => {
+  const colorBlue = { color: "blue" };
+  const colorGreen = { color: "green" };
+
+  return (
+    <dd key={name} style={prefecture === 'ken' ? colorGreen : colorBlue}>
+      {name}
+    </dd>
+  )
+}
 function List1() {
   const prefectureAll = getPrefecture();
 
-  const colorBlue = { color: "blue" };
-  const colorGreen = { color: "green" };
   return (
     <dl>
       {prefectureAll.map(({name, prefecture}) => (
-        <dd key={name} style={prefecture === 'ken' ? colorGreen : colorBlue}>
-          {name}
-        </dd>
+        <PrefectureListItem name={name} prefecture={prefecture}/>
       ))}
     </dl>
   );
