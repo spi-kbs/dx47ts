@@ -1,22 +1,50 @@
 import React from 'react';
 
+// function PrefectureListItem({area}:{area: string}) {
+// function PrefectureListItem(props :{area: string}) {
+const PrefectureListItem = ({name, area}: {name: string, area: { name: string; prefecture: string; }[]}) => {
+  return (
+    <dt key={name}>
+      <dt>{name}</dt>
+      {area.map(({name, prefecture}) => (
+        <dd>{name}</dd>
+      ))}
+    </dt>
+  )
+}
+
+    
 function List2() {
   const prefectureAll = getPrefecture();
 
   return (
     <dl>
       {prefectureAll.map(({name, area}) => (
-        <dt key={name}>
-          <dt>{name}</dt>
-          {area.map(({name, prefecture}) => (
-            <dd>{name}</dd>
-          ))}
-        </dt>
+        <PrefectureListItem name={name} area={area} />
+        // <dt key={name}>
+        //   <dt>{name}</dt>
+        //   {area.map(({name, prefecture}) => (
+        //     <dd>{name}</dd>
+        //   ))}
+        // </dt>
       ))}
     </dl>
   );
 }
 
+
+// const plus = (x: number, y: number) => x + y
+// function plus2(x: number, y:number) {
+//   return x + y
+// }
+
+// const elements = document.getElementsByName('yumyum')
+// // $('.yum,tum').each(function(e) {
+// //   $(this).
+// // }.bind(this))
+// elements.forEach(element) => {
+//   console.log(this)
+// }
 
 function getPrefecture() {
   return [
