@@ -1,20 +1,22 @@
 import React from "react";
+// import PrefectureListItem from "./PrefectureListItem";
+import {PrefectureListItem} from "./PrefectureListItem";
+import {Region} from "./interface/Prefecture"
 
 // function PrefectureListItem({area}:{area: string}) {
 // function PrefectureListItem(props :{area: string}) {
-const PrefectureListItem = ({
-  name,
-  area,
-}: Region) => {
-  return (
-    <dt key={name}>
-      <dt>{name}</dt>
-      {area.map(({ name, prefecture }) => (
-        <dd>{name}</dd>
-      ))}
-    </dt>
-  );
-};
+//   name,
+//   area,
+// }: Region) => {
+//   return (
+//     <dt key={name}>
+//       <dt>{name}</dt>
+//       {area.map(({ name, prefecture }) => (
+//         <dd>{name}</dd>
+//       ))}
+//     </dt>
+//   );
+// };
 
 function List2() {
   const prefectureAll = getPrefecture();
@@ -46,21 +48,6 @@ function List2() {
 // elements.forEach(element) => {
 //   console.log(this)
 // }
-
-interface Prefecture {
-  name: string;
-  prefecture: "do" | "to"|"fu"|"ken";
-}
-
-interface Region {
-  name: string;
-  // area: Array<{
-  //   name: string;
-  //   prefecture: string
-
-  // }>
-  area: Prefecture[]
-}
 
 function getPrefecture(): Region[] {
   return [
