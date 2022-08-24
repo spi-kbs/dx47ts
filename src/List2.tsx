@@ -33,7 +33,14 @@ function List2() {
         if (isOpen) {
           return <button onClick={() => setOpenRegionNames(openRegionNames.filter((openRegion) => openRegion !== name))}>oepn{name}</button>
         } else {
-          return <button onClick={() => setOpenRegionNames(openRegionNames.concat(name))}>close{name}</button>
+          return (
+            <React.Fragment>
+              <button onClick={() => setOpenRegionNames(openRegionNames.concat(name))}>
+                close{name}
+              </button>
+              <RegionListItem name={name} area={area} key={i} />
+            </React.Fragment>
+          )
         }
 
         // return  (
