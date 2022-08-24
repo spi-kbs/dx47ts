@@ -1,15 +1,51 @@
-import React from "react";
+import React, { useState } from 'react';
 import {RegionClosedListItem, RegionListItem} from "./components/RegionListItem";
 import {Region} from "./types/Prefecture"
 
 function List2() {
   const regions = getRegions();
 
+  const [openRegionNames, setOpenRegionNames] = useState<string[]>([])
+
+  // let tempFlg = [];
+  // let tempFlg = [{name: string}];
+  // interface tempFlg {flg: boolean};
+  // interface tempFlg2 {
+  //   list: {flg: boolean}[]
+  // }
+  // let tempFlg2: tempFlg2 = {
+  //   list: [{
+  //     flg: ""
+  //   }]
+  // };
+
+  // for(let i=0; regions.length; i++){
+  //   tempFlg2[i][useState(false)[0], useState(false)[1]];
+  //   // const [openFlg, setOpenFlg] = useState(false);
+  // }
+
   return (
     <dl>
-      {regions.map(({ name, area }, i) => (
+      {/* {JSON.stringify(regions)} */}
+      {regions.map(({ name, area }, i) => {
+        const isOpen = openRegionNames.includes(name);
+        
+        if (isOpen) {
+          return <button onClick={() => setOpenRegionNames(openRegionNames.filter((openRegion) => openRegion !== name))}>oepn{name}</button>
+        } else {
+          return <button onClick={() => setOpenRegionNames(openRegionNames.concat(name))}>close{name}</button>
+        }
+
+        // return  (
+        // <RegionListItem name={name} area={area} key={i} />
+        // )
+      })}
+
+      {/* これがオリジナル  */}
+      {/* {regions.map(({ name, area }, i) => (
         <RegionListItem name={name} area={area} key={i} />
-      ))}
+      ))} */}
+
 
       {/* {regions.map((region, i) => (
         <RegionListItem name={region.name} area={region.area} key={i} />
