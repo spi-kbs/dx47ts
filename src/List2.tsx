@@ -5,7 +5,7 @@ import {Region} from "./types/Prefecture"
 function List2() {
   const regions = getRegions();
 
-  const [openRegionNames, setOpenRegionNames] = useState<string[]>([])
+  // const [openRegionNames, setOpenRegionNames] = useState<string[]>([])
 
   // let tempFlg = [];
   // let tempFlg = [{name: string}];
@@ -27,16 +27,16 @@ function List2() {
   return (
     <dl>
       {/* {JSON.stringify(regions)} */}
-      {regions.map(({ name, area }, i) => {
+      {/* {regions.map(({ name, area }, i) => {
         const isOpen = openRegionNames.includes(name);
         
         if (isOpen) {
-          return <button onClick={() => setOpenRegionNames(openRegionNames.filter((openRegion) => openRegion !== name))}>oepn{name}</button>
+          return <button onClick={() => setOpenRegionNames(openRegionNames.filter((openRegion) => openRegion !== name))}>{name}({regions.length})</button>
         } else {
           return (
             <React.Fragment>
               <button onClick={() => setOpenRegionNames(openRegionNames.concat(name))}>
-                close{name}
+                {name}({regions.length})
               </button>
               <RegionListItem name={name} area={area} key={i} />
             </React.Fragment>
@@ -46,12 +46,13 @@ function List2() {
         // return  (
         // <RegionListItem name={name} area={area} key={i} />
         // )
-      })}
+      })} */}
 
       {/* これがオリジナル  */}
-      {/* {regions.map(({ name, area }, i) => (
+      {regions.map(({ name, area }, i) => (
+        // <RegionListItem name={name} area={area} key={i} />
         <RegionListItem name={name} area={area} key={i} />
-      ))} */}
+      ))}
 
 
       {/* {regions.map((region, i) => (
