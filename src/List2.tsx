@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {RegionClosedListItem, RegionListItem} from "./components/RegionListItem";
+import {RegionClosedListItem, RegionListItem} from "./components/Regions";
 import {Region} from "./types/Prefecture"
 
 function List2() {

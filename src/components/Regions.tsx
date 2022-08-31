@@ -8,7 +8,6 @@ export const RegionListItem = ({
 }: Region) => {
   const [openRegionNames, setOpenRegionNames] = useState<string[]>([]);
   const isOpen = openRegionNames.includes(name);
-  // const test = 1;
 
 
   if (isOpen) {
