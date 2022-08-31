@@ -41,10 +41,9 @@ export const Regions = ({
 }: Region) => {
   return (
     <dt key={name}>
-      <dt>{name}</dt>
-      {area.map(({ name }) => (
-        <dd>{name}</dd>
-      ))}
+    {area.map(({ name }) => (
+      <dd>{name}</dd>
+    ))}
     </dt>
   );
 };
