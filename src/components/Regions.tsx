@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Region} from "../types/Prefecture"
 
 
-export const RegionListItem = ({
+export const RegionAccordion = ({
   name,
   area,
 }: Region) => {
@@ -26,20 +26,14 @@ export const RegionListItem = ({
         <button onClick={() => setOpenRegionNames(openRegionNames.concat(name))}>
           {name}
         </button>
-        <RegionListItem2 name={name} area={area} />
+        <Regions name={name} area={area} />
       </>
     )
   }
-  // <dt key={name}>
-  //   <dt>{name}</dt>
-  //   {area.map(({ name }) => (
-  //     <dd>{name}</dd>
-  //   ))}
-  // </dt>
 };
 
 
-export const RegionListItem2 = ({
+export const Regions = ({
   name,
   area,
 }: Region) => {
@@ -49,20 +43,6 @@ export const RegionListItem2 = ({
       {area.map(({ name }) => (
         <dd>{name}</dd>
       ))}
-    </dt>
-  );
-};
-
-
-export const RegionClosedListItem = ({
-  name,
-}: Pick<Region, "name">) => {
-  return (
-    <dt key={name}>
-      <dt>{name}</dt>
-      {/* {area.map(({ name }) => (
-        <dd>{name}</dd>
-      ))} */}
     </dt>
   );
 };

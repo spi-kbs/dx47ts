@@ -1,108 +1,19 @@
 import React, { useState } from 'react';
-import {RegionClosedListItem, RegionListItem} from "./components/Regions";
+import {RegionAccordion} from "./components/Regions";
 import {Region} from "./types/Prefecture"
 
 function List2() {
   const regions = getRegions();
 
-  // const [openRegionNames, setOpenRegionNames] = useState<string[]>([])
-
-  // let tempFlg = [];
-  // let tempFlg = [{name: string}];
-  // interface tempFlg {flg: boolean};
-  // interface tempFlg2 {
-  //   list: {flg: boolean}[]
-  // }
-  // let tempFlg2: tempFlg2 = {
-  //   list: [{
-  //     flg: ""
-  //   }]
-  // };
-
-  // for(let i=0; regions.length; i++){
-  //   tempFlg2[i][useState(false)[0], useState(false)[1]];
-  //   // const [openFlg, setOpenFlg] = useState(false);
-  // }
-
   return (
     <dl>
-      {/* {JSON.stringify(regions)} */}
-      {/* {regions.map(({ name, area }, i) => {
-        const isOpen = openRegionNames.includes(name);
-        
-        if (isOpen) {
-          return <button onClick={() => setOpenRegionNames(openRegionNames.filter((openRegion) => openRegion !== name))}>{name}({regions.length})</button>
-        } else {
-          return (
-            <React.Fragment>
-              <button onClick={() => setOpenRegionNames(openRegionNames.concat(name))}>
-                {name}({regions.length})
-              </button>
-              <RegionListItem name={name} area={area} key={i} />
-            </React.Fragment>
-          )
-        }
-
-        // return  (
-        // <RegionListItem name={name} area={area} key={i} />
-        // )
-      })} */}
-
-      {/* これがオリジナル  */}
       {regions.map(({ name, area }, i) => (
         // <RegionListItem name={name} area={area} key={i} />
-        <RegionListItem name={name} area={area} key={i} />
+        <RegionAccordion name={name} area={area} key={i} />
       ))}
-
-
-      {/* {regions.map((region, i) => (
-        <RegionListItem name={region.name} area={region.area} key={i} />
-      ))} */}
-
-      {/* {regions.map((region, i) => (
-        <RegionListItem {...region} key={i} />
-      ))} */}
-
-
-      {/* {regions.map((region, i) => (
-        <RegionClosedListItem {...region} key={i} />
-      ))} */}
     </dl>
   );
 }
-
-const matsuura = {
-  name: 'matsuura'
-}
-const kobashi = {
-  agen: 20
-}
-
-const merged = {
-  ...matsuura,
-  ...kobashi
-}
-// console.log(merged)
-// {
-//   name: 'matsuura'
-//   age: 20
-// }
-
-
-const merged2 = {
-  matsuura,
-  kobashi
-}
-// console.log(merged)
-// {
-//   matsuura:{
-//     name: 'matsuura'
-//   },
-//   kobashi: {
-//     age: 20
-//   }
-// }
-
 
 function getRegions(): Region[] {
   return [
