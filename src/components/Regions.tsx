@@ -12,22 +12,24 @@ export const RegionAccordion = ({
 
   if (isOpen) {
     return (
-      <button onClick={
-        () => setOpenRegionNames(
-          openRegionNames.filter(
-            (openRegion) => openRegion !== name
+      <div>
+        <button onClick={
+          () => setOpenRegionNames(
+            openRegionNames.filter(
+              (openRegion) => openRegion !== name
+              )
             )
-          )
-        }>{name}</button>
+        }>{name}({area.length})</button>
+      </div>
     )
   } else {
     return (
-      <>
+      <div>
         <button onClick={() => setOpenRegionNames(openRegionNames.concat(name))}>
-          {name}
+          {name}({area.length})
         </button>
         <Regions name={name} area={area} />
-      </>
+      </div>
     )
   }
 };
