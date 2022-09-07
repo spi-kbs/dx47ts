@@ -12,7 +12,7 @@ function List2() {
         <RegionAccordion name={name} area={area} key={i} />
       ))}
     </dl>
-  );
+  );  
 }
 
 function getRegions(): Region[] {
